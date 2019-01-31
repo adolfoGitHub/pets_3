@@ -1,0 +1,16 @@
+{
+  "name": "sgabriel/328/pets_3",
+  "authors": [
+    {
+      "name": "Samantha Gabriel",
+      "email": "sgabriel@mail.greenriver.edu"
+    },
+    {
+      "name": "Adolfo Gonzalez",
+      "email": "agonzalez15@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
