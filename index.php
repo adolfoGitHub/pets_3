@@ -1,8 +1,9 @@
 <?php
 
 //turn on error reporting
-ini_set('display_errors',1);
 error_reporting(E_ALL);
+ini_set('display_errors',TRUE);
+
 
 //require autoload
 require_once('vendor/autoload.php');
