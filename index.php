@@ -7,10 +7,16 @@ error_reporting(E_ALL);
 //require autoload
 require_once('vendor/autoload.php');
 
+//session call
 session_start();
 
 //create and instance of the Base class
 $f3 = Base::instance();
+
+//
+$f3->set('color',array('pink', 'green', 'blue'));
+
+
 //turn on fat free error reporting
 $f3->set('DEBUG',3);
 
