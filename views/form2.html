@@ -2,20 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Color</title>
 </head>
 <body>
+<div class="container">
 
-<form action="#" method="post" class="form-horizontal">
-    <label>Color</label>
-    <select class="form-control" name="color" id="color">
-        <option>--Select a color--</option>
-        <repeat group="{{ @colors }}" value="{{ @colorOption}}">
-            <option>{{ @colorOption}}</option>
-        </repeat>
-    </select><br><br>
-    <button>Submit</button>
-</form>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <form action="#" method="post" class="form-horizontal">
 
+                    <label class="col-sm-1 control-label" for="color">Pet Color</label>
+                        <div class="col-sm-4">
+                            <check if="{{ isset(@errors['color']) }}">
+                                <p>{{ @errors['color']}}</p>
+                            </check>
+                    <select class="form-control" name="color" id="color">
+                        <option>--Select a color--</option>
+                        <repeat group="{{ @colors }}" value="{{ @colorOption}}">
+                            <option>
+                                <check if="{{ @colorOption == @color }}">selected</check>
+                                {{ @colorOption }}
+                            </option>
+                        </repeat>
+                    </select><br><br>
+                        </div>
+                    <button type="submit">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
