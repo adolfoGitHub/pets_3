@@ -6,12 +6,13 @@ function validColor($color)
 
 }
 
-function validString($color)
+function validText($color)
 {
-    if ($color != "" || !(ctype_alpha($color))){
+    if ((empty($valid)){
+            echo "Enter an animal';
+            return false;
+        }
+    if ()
 
-        return false;
-
-    }
     return true;
 }
