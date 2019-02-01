@@ -92,7 +92,7 @@ $f3->route('GET|POST /order',
         }
         $template = new Template();
 
-        echo $template->render('views/form1.html');
+        echo $template->render('/form2.html');
     });
 
 
