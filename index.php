@@ -96,12 +96,12 @@ $f3->route('GET|POST /order',
     });
 
 
-$f3->route('POST /form2', function () {
+$f3->route('GET|POST /form2', function () {
 
     $_SESSION["animal"] = $_POST['animal'];
 
     $template=  new Template();
-    echo $template->render('views/form2.html');
+    echo $template->render('/views/form2.html');
 });
 
 $f3->route('GET|POST /results', function ($f3) {
@@ -112,7 +112,7 @@ $f3->route('GET|POST /results', function ($f3) {
     $f3->set("color", $_SESSION["color"]);
     $f3->set("sound", $_SESSION["sound"]);
     $template = new Template();
-    echo $template->render('views/results.html');
+    echo $template->render('/views/results.html');
 });
 
 //run fat free
