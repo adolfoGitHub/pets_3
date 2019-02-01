@@ -1,14 +1,15 @@
 <?php
-session_start();
 
 //turn on error reporting
 error_reporting(E_ALL);
-ini_set('display_errors', TRUE);
+ini_set('display_errors', 1);
 
 
 //require autoload
 require_once('vendor/autoload.php');
 require_once('models/validation-functions.php');
+
+session_start();
 
 
 //create and instance of the Base class
@@ -35,7 +36,7 @@ $f3->route('GET /@animal', function ($f3, $params) {
     $validAnimals = ['dog', 'chicken', 'cat', 'tiger', 'cow'];
     $animal = $params['animal'];
 
-    if (!inarray($animal, $validAnimals)) {
+    if (!in_array($animal, $validAnimals)) {
         $f3->error(404);
 
     } else {
@@ -73,7 +74,7 @@ $f3->route('GET|POST /order',
 
     function ($f3) {
 
-        $_SESSION - array();
+        //$_SESSION = array();
 
         if (isset($_POST['animal'])) {
 
@@ -92,27 +93,30 @@ $f3->route('GET|POST /order',
         }
         $template = new Template();
 
-        echo $template->render('/form2.html');
+        echo $template->render('views/form1.html');
     });
 
 
-$f3->route('GET|POST /form2', function () {
+$f3->route('GET|POST /form2', function ($f3) {
 
-    $_SESSION["animal"] = $_POST['animal'];
+    if (isset($_POST['submit'])) {
+
+
+        $_SESSION["color"] = $_POST['color'];
+        $f3->reroute('/results');
+    }
 
     $template=  new Template();
-    echo $template->render('/views/form2.html');
+
+    echo $template->render('views/form2.html');
 });
 
-$f3->route('GET|POST /results', function ($f3) {
+$f3->route('GET|POST /results', function () {
 
 
-    $_SESSION["color"] = $_POST['color'];
-    $f3->set("animal", $_SESSION["animal"]);
-    $f3->set("color", $_SESSION["color"]);
-    $f3->set("sound", $_SESSION["sound"]);
+
     $template = new Template();
-    echo $template->render('/views/results.html');
+    echo $template->render('views/results.html');
 });
 
 //run fat free
