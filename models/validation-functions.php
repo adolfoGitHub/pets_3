@@ -1,4 +1,4 @@
-
+<?php
 function validColor($color)
 {
     global $f3;
@@ -6,13 +6,7 @@ function validColor($color)
 
 }
 
-function validText($color)
+function validText($animal)
 {
-    if ((empty($valid)){
-            echo "Enter an animal';
-            return false;
-        }
-    if ()
-
-    return true;
+    return ctype_alpha($animal);
 }
